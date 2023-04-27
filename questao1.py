@@ -4,11 +4,29 @@ import unittest
 # na forma "Número de donuts: <count>", caso `count` seja
 # maior ou igual a 10 retornar "many".
 def donuts(count):
+  '''Usando IF para checar variável'''
+  if count >=10:
+    '''Maior que dez funciona melhor pois printa qualquer valor menor 10'''
+    print('many')
+  else:
+    print(str(count))
     pass
+donuts(-18)
+
 
 # Outra versão
 def donutsV2(count):
+  while count >= 10:
+    print('many')
+    break
+  while count<10:
+    print(count)
+    break
     pass
+donutsV2(-18)
+
+
+
 
 # Dado uma string qualquer `s`, retonar uma string
 # composta dos 2 primeiros e os 2 últimos caracteres, exemplo:
@@ -21,8 +39,18 @@ def donutsV2(count):
 # Caso a string `s` contenha menos que 2 caracteres,
 # retornar "" (string de cumprimento zero).
 def both_ends(s):
+  x = len(s)
+  if x > 2:
+    print(s[x-x]+s[x-x+1]+s[x-1]+s[x-2])
+  elif  x ==2:
+    print(2*(s[x-x]+s[x-x+1]))
+  elif  x <2:
+    print(4*(s[x-x]))
+  else :
+    print('')
     pass
 
+both_ends("abcdefg")
 # Dado uma string `s`, retornar uma string onde
 # todas as ocorrências de seu primeiro caractere
 # seja alterado para '*', exceto o primeiro caracter. Exemplo:
