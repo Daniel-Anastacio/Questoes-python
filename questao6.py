@@ -105,7 +105,6 @@ def ponteironuloville(telefones):
             list_un = list(telefones[i])
             val=check_val(list_un)
             if remove_adjacent(list_un) and sum(val)%2==0 and first_ultimate(list_un):
-                print(list_un, val, sum(val)%2, i, len(result))
                 result.sort()
                 result.append(telefones[i])
         else:
