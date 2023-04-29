@@ -78,6 +78,41 @@ def numeros_sortudos(limite_inferior=1, limite_superior=100000):
     '''
 
 def ponteironuloville(telefones):
+    result = []
+    def remove_adjacent(nums):
+        y = list()
+        p = 0
+        for i in nums:
+            if i not in y or i != p:
+                y.append(i)
+            p = y[len(y)-1]
+        if nums == y:
+            return True
+        else:
+            return False
+    def first_ultimate(x):
+        if x[0] != x[len(x)-1]:
+            return True
+        else:
+            return False
+    def check_val(list):
+        x=[]
+        for i in range(0, len(list)):
+            x.append(int(list[i]))
+        return x
+    for i in range(len(telefones)):
+        if len(telefones[i])==6:
+            list_un = list(telefones[i])
+            val=check_val(list_un)
+            if remove_adjacent(list_un) and sum(val)%2==0 and first_ultimate(list_un):
+                print(list_un, val, sum(val)%2, i, len(result))
+                result.sort()
+                result.append(telefones[i])
+        else:
+            pass
+    return len(result)
+
+
     '''Na pacata vila campestre de Ponteironuloville, todos os telefones 
     têm 6 dígitos. A companhia telefônica estabelece as seguintes regras 
     sobre os números:
