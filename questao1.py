@@ -1,4 +1,4 @@
-import unittest,re
+import unittest
 
 # Dado um `count` como sendo o números de donuts, retornar uma string
 # na forma "Número de donuts: <count>", caso `count` seja

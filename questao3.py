@@ -4,6 +4,11 @@ import unittest
 # se cada palavra for maior ou igual a dois e
 # se o primeiro caracter coincidir com o último
 def match_ends(words):
+  x = 0
+  for i in words:
+    if  len(i)>=2 and i[:1]==i[len(i)-1]:
+      x=x+1
+  return x
   pass
 
 # Dado uma lista de strings, retornar uma lista de string ordenadas,
@@ -12,6 +17,16 @@ def match_ends(words):
 # Dica: isto pode ser feito com 2 listas ordenando cada uma delas e
 # depois combinado-as. Veja os testes para maiores detalhes.
 def front_x(words):
+  list1=[]
+  list2=[]
+  for i in words:
+    if i[:1] == "x":
+      list1.append(i)
+      list1.sort()
+    else:
+      list2.append(i)
+      list2.sort()
+  return list1 + list2
   pass
 
 # Dado uma lista de tuplas não vazias, retornar uma lista ordenada
@@ -21,6 +36,8 @@ def front_x(words):
 # o último elemento, ela deve ser passada no segundo parâmetro
 # da função sorted()
 def sort_last(tuples):
+  
+  return sorted(tuples, reverse=True)
   pass
 
 def last(a):

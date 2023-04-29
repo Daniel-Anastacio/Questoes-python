@@ -10,6 +10,12 @@ def maiores_13(idades,alturas):
     'idades' maior que 13 e altura inferior a media da turma'''
 
 def media_saltos_lista(saltos):
+    saltos.sort()
+
+    saltos.remove(saltos[0])
+    saltos.remove(saltos[3])
+ 
+    return sum(saltos)/len(saltos)
     '''Receba uma lista com os saltos de um atleta e calcule a média dos 
     seus saltos, sabendo que o melhor e o pior saltos são desconsiderados.'''
 
@@ -18,6 +24,14 @@ def lista_de_primos(inicio,fim):
     os limites'''
 
 def Fibonacci(n):
+    nums =[]
+    if n==1:
+        return 0
+    if n ==2:
+        return 1
+    else:
+        return Fibonacci(n-1) + Fibonacci(n-2)
+
     ''' Retorne uma lista com os n primeiros valores da série de Fibonacci.
     Fibonacci = 1,1,2,3,5,8,13,...'''
 

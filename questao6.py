@@ -1,5 +1,15 @@
+import string
 def palindrome(texto):
-    '''Faça uma função que verifique se uma textro passado é palíndrome,
+    texto = texto.replace(" ",'')
+    texto = texto.lower()
+    texto = texto.translate(str.maketrans('', '', string.punctuation))
+    inversa = ' '.join(palavra [::-1] for palavra in texto.split())
+    if inversa == texto:
+        return True
+    else:
+        return False
+
+'''Faça uma função que verifique se uma textro passado é palíndrome,
     isto é, se é igual quando lido de trás pra frente.'''
 
 def troca_caixa(texto):
@@ -7,15 +17,57 @@ def troca_caixa(texto):
     Consoantes ficam em caixa baixa (minúsculas)'''
 
 def imprime_mes_por_extenso(data):
+    mes = data[3:5]
+    match mes:
+        case"01":
+            return data[:2] + " de janeiro de "+ data[6:]
+        case"02":
+            return data[:2] + " de fevereiro de "+ data[6:]
+        case"03":
+            return data[:2] + " de março de "+ data[6:]
+        case"04":
+            return data[:2] + " de abril de "+ data[6:]
+        case"05":
+            return data[:2] + " de maio de "+ data[6:]
+        case"06":
+            return data[:2] + " de junho de "+ data[6:]
+        case"07":
+            return data[:2] + " de julho de "+ data[6:]
+        case"08":
+            return data[:2] + " de agosto de "+ data[6:]
+        case"09":
+            return data[:2] + " de setembro de "+ data[6:]
+        case"10":
+            return data[:2] + " de outubro de "+ data[6:]
+        case"11":
+            return data[:2] + " de novmbro de "+ data[6:]
+        case"12":
+           return  data[:2] + " de dezembro de "+ data[6:]
     '''Faça um programa que solicite a data de nascimento (dd/mm/aaaa) 
     e imprima com o nome do mês por extenso
     '''
 
 def encontra_caracter(texto, caracter):
+    if caracter in texto:
+        return texto.index(caracter)
+    else:
+        return None
     '''Receba um texto e retorne a localização da primeira vez que 
     aparece o caracter especificado'''
 
 def numeros_sortudos(limite_inferior=1, limite_superior=100000):
+    contador = 0
+    def nmerosort(n):
+        if n.count('7') == 0 and n.count('2')>0:
+            return True
+        else:
+            return False
+    for i in range(limite_inferior, limite_superior):
+        if nmerosort(str(i)):
+            contador+=1
+        else:
+            pass
+    return contador
     ''' Daniela é uma pessoa muito supersticiosa. Para ela, um número é 
     sortudo se ele contém o dígito 2 mas não o dígito 7. 
     Faça então uma função que informe a ela quantos números sortudos 

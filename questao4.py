@@ -5,6 +5,13 @@ import unittest
 # Então, [1, 2, 2, 3] retornará [1, 2, 3]
 # Você pode criar uma nova lista ou modificar a lista atual.
 def remove_adjacent(nums):
+    x = list()
+    p = 0
+    for i in nums:
+        if i not in x or i != p:
+          x.append(i)
+        p = x[len(x)-1]
+    return x
     pass
 
 # Dado duas listas ordenadas em ordem crescente, criar e retornar uma
@@ -12,6 +19,7 @@ def remove_adjacent(nums):
 # Você pode modificar as listas passadas.
 # Idealmente, a solução deve trabalhar em tempo "linear", que passa uma única vez em ambas as listas.
 def linear_merge(list1, list2):
+    return sorted(list1+list2, reverse=False)
     pass
 
 class MyTest(unittest.TestCase):
