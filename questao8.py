@@ -20,17 +20,52 @@ def media_saltos_lista(saltos):
     seus saltos, sabendo que o melhor e o pior saltos são desconsiderados.'''
 
 def lista_de_primos(inicio,fim):
+    '''LISTA DOS RESULTADOS'''
+    result=[]
+    '''VALIDAÇÃO UNITÁRIA SOBRE A DIVISIBILIDADE DE UM NÚMERO'''
+    def primos_unit(n):
+        '''DIVISORES'''
+        divs = 0
+        '''LOOP QUE PERCORRE OS LIMITES'''
+        for i in range(1,n):
+            if n%i==0:
+                divs+=1
+            else:
+                continue
+        '''VALIDAÇÃO AO TÉRMINO DO LOOP'''
+        if divs ==1:
+            return True
+        else:
+            return False
+    '''LOOP QUE CHAMA A FUNÇÃO E ADICIONA OS VALORES VÁLIDOS NA LISTA'''
+    for j in range(inicio,fim+1):
+        if j!=0 and primos_unit(j):
+            result.append(j)
+        else:
+            continue
+    return result
     '''Retorne uma lista de primos entre os valores informados, incluindo
     os limites'''
 
 def Fibonacci(n):
+    '''DECLARAMOS UM CONTADOR I E UMA LISTA QUE RECEBERÁ OS NÚEMROS'''
     nums =[]
-    if n==1:
-        return 0
-    if n ==2:
-        return 1
-    else:
-        return Fibonacci(n-1) + Fibonacci(n-2)
+    i=n
+    def Fibonacci_unit(s):
+        '''UNITARIAMENTE É FEITO O FIBONACCI'''
+        if s==1:
+            return 1
+        if s ==2:
+            return 1
+        else:
+            return Fibonacci_unit(s-1)+Fibonacci_unit(s-2)
+    '''UM LOOP PARA QUE OS VALORES SEJAM ADICIONADOS RECURSIVAMENTE E UMA FUNÇÃO PARA ORDENAR OS VALORES'''
+    while i>0:
+        nums.append(Fibonacci_unit(i))
+        i-=1
+    nums = sorted(nums)
+    return nums 
+
 
     ''' Retorne uma lista com os n primeiros valores da série de Fibonacci.
     Fibonacci = 1,1,2,3,5,8,13,...'''
