@@ -5,12 +5,18 @@ import unittest
 # Então, [1, 2, 2, 3] retornará [1, 2, 3]
 # Você pode criar uma nova lista ou modificar a lista atual.
 def remove_adjacent(nums):
+    '''LISTA QUE RECEBERÁ OS VALORES DE RESULTADO'''
     x = list()
+    '''ÚLTIMO DIGITO ADICIONADO'''
     p = 0
+    '''LOOP QUE PERCORRE TODA A LISTA nums'''
     for i in nums:
+        '''CHECA SE O NÚMERO NÃO FOI REPETIDO E SE NÃO É 
+        IGUAL AO ÚLTIMO ADICIONADO'''
         if i not in x or i != p:
           x.append(i)
         p = x[len(x)-1]
+    '''RETORNA A LISTA CONCERTADA'''
     return x
     pass
 
@@ -19,9 +25,14 @@ def remove_adjacent(nums):
 # Você pode modificar as listas passadas.
 # Idealmente, a solução deve trabalhar em tempo "linear", que passa uma única vez em ambas as listas.
 def linear_merge(list1, list2):
+  '''CHECA SE AS LISTAS TEM VALOR E COLOCA
+  ELAS EM ORDEM '''
+  if list1!=[None] and list2!=[None]:
     return sorted(list1+list2, reverse=False)
+  else:
+    return None
     pass
-
+linear_merge([1,2,3],[None])
 class MyTest(unittest.TestCase):
   def test_remove_adjacent(self):
     self.assertEqual(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
