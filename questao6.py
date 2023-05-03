@@ -1,8 +1,12 @@
 import string
 def palindrome(texto):
+    '''RETIRAM-SE ESPAÇOS, COLOCA-SE EM CAIXA BAIXA E SE TIRAM OS PONTOS'''
     texto = texto.replace(" ",'')
     texto = texto.lower()
     texto = texto.translate(str.maketrans('', '', string.punctuation))
+    '''CRIA-SE UMA PALAVRA INVERSA ATRAVÉS DA TRANSFORMAÇÃO
+    NUMA LISTA E DEPOIS O MÉTODO join TRANSFORMA DE NOVO EM 
+    STRING'''
     inversa = ' '.join(palavra [::-1] for palavra in texto.split())
     if inversa == texto:
         return True
@@ -13,11 +17,24 @@ def palindrome(texto):
     isto é, se é igual quando lido de trás pra frente.'''
 
 def troca_caixa(texto):
+    '''EM uppercase E lowercase DECLARAM-SE AS STRINGS 
+    QUE DEVE SER TROCADAS'''
+    uppercase = 'AEIOUÊÔÁÀÉÊÃÍbcçdfghjklmnpqrstvwxyz'
+    lowercase = 'aeiouêôáàéêãíBCÇDFGHJKLMNPQRSTVWXYZ'
+    '''COMO AS STRINGS TEM O MESMO TAMANHO E SÃO SIMÉTRICAS
+    É POSSÍVEL FAZER UMA ESPÉCIE DE TABELA USANDO O 
+    maketrans E DEPOIS APLICANDO NO texto USANDO O translate'''
+    vg_grande = str.maketrans(lowercase, uppercase)
+    return texto.translate(vg_grande)
     '''Vogais ficam em caixa alta (maiúsculas)
     Consoantes ficam em caixa baixa (minúsculas)'''
 
 def imprime_mes_por_extenso(data):
+    '''TRATAMENTO DE STRING: RESERVA-SE O SEU CENTRO
+    COM O NÚMERO DO MÊS'''
     mes = data[3:5]
+    '''AQUI O match case CHECARÁ O VALOR DE mes E
+    RETORNARÁ UM STRING TRATADA'''
     match mes:
         case"01":
             return data[:2] + " de janeiro de "+ data[6:]
@@ -48,7 +65,10 @@ def imprime_mes_por_extenso(data):
     '''
 
 def encontra_caracter(texto, caracter):
+    '''CONDICIONAL QUE DIZ SE O caracter ESTÁ EM
+    texto '''
     if caracter in texto:
+        '''RETORNA O INDEX DO CARACTER'''
         return texto.index(caracter)
     else:
         return None
@@ -56,9 +76,11 @@ def encontra_caracter(texto, caracter):
     aparece o caracter especificado'''
 
 def numeros_sortudos(limite_inferior=1, limite_superior=100000):
+    '''VARIÁVEL QUE CONTARÁ OS NÚMEROS VÁLIDOS'''
     contador = 0
     def nmerosort(n):
-        if n.count('7') == 0 and n.count('2')>0:
+        '''CHECA SE O NÚMERO TEM 7 E 2'''
+        if '7' not in n and '2' in n:
             return True
         else:
             return False
@@ -78,33 +100,46 @@ def numeros_sortudos(limite_inferior=1, limite_superior=100000):
     '''
 
 def ponteironuloville(telefones):
+    '''VARIÁVEL QUE ARMAZENARÁ O RESULTADO'''
     result = []
+    '''FUNÇÃO QUE CHECA SE HÁ NÚMEROS IGUAIS ADJACENTES'''
     def remove_adjacent(nums):
+        '''LISTA QUE VAI SER CHECADA'''
         y = list()
+        '''VARIÁVEL QUE SERÁ O ÚLTIMO NÚMERO ADICIONADO'''
         p = 0
         for i in nums:
+            '''CHECA SE O NÚMERO A SER ADICIONADO NÃO É REPETIDO'''
             if i not in y or i != p:
                 y.append(i)
             p = y[len(y)-1]
+        '''CHECA SE A LISTA TEVE DE SER ALTERADA OU NÃO E VALIDA'''
         if nums == y:
             return True
         else:
             return False
+    '''FUNÇÃO QUE CHECA SE O ÚLTIMO É DIFERENTE DO PRIMEIRO'''
     def first_ultimate(x):
         if x[0] != x[len(x)-1]:
             return True
         else:
             return False
+    '''FUNÇÃO QUE TRASNFORMA UMA LISTA DE STRINGS
+    EM UMA LISTA DE NÚMEROS'''
     def check_val(list):
         x=[]
         for i in range(0, len(list)):
             x.append(int(list[i]))
         return x
+    '''LOOP QUE PERCORRE TODA A LISTA'''
     for i in range(len(telefones)):
+        '''CHECA SE O NÚMERO É VÁLIDO'''
         if len(telefones[i])==6:
             list_un = list(telefones[i])
             val=check_val(list_un)
+            '''CHECA EM TODAS AS FUNÇÕES'''
             if remove_adjacent(list_un) and sum(val)%2==0 and first_ultimate(list_un):
+                '''ORDENA E ADICIONA O VALOR A LISTA'''
                 result.sort()
                 result.append(telefones[i])
         else:
