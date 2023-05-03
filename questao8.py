@@ -94,6 +94,22 @@ def Fibonacci(n):
     Fibonacci = 1,1,2,3,5,8,13,...'''
 
 def altera_salarios(salarios):
+    '''LISTA QUE ARMAZENARÁ OS RESULTADOS'''
+    result=[]
+    '''SALÁRIO MÍNIMO'''
+    sm = 724.0
+    '''LOOP QUE PERCORRERÁ A LISTA DE SALÁRIOS'''
+    for i in range(0, len(salarios)):
+        '''CONDICIONAIS QUE CHECAM OS SALÁRIOS DE CADA UM'''
+        if salarios[i]<=sm:
+            result.append(salarios[i]+salarios[i]*0.2)
+        elif sm < salarios[i] <= 2*sm:
+            result.append(salarios[i]+salarios[i]*0.15)
+        elif 2*sm < salarios[i] <= 5*sm:
+            result.append(salarios[i]+salarios[i]*0.10)
+        else:
+            result.append(salarios[i]+salarios[i]*0.05)
+    return result
     ''' Calcule o aumento de salário de acordo com a seguinte tabela:
     - até 1 SM(inclusive): aumento de 20%
     - de 1 até 2 SM(inclusive): aumento de 15%
