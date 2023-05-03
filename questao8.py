@@ -1,9 +1,32 @@
 def media_anual(temperaturas):
+    '''MEDIA DAS TEMPERATURAS'''
+    media = sum(temperaturas)/len(temperaturas)
+    '''LISTA DAS TEMPERATURAS ACIMA DA MÉDIA'''
+    acima = []
+    '''LOOP QUE CHECA TODAS AS TEMPERATURAS E ADICIONA AS MAIORES A LISTA acima'''
+    for i in range(0, len(temperaturas)):
+        if temperaturas[i]>media:
+            acima.append(i)
+        else:
+            continue
+    return acima
     '''Receba uma lista com as temperaturas médias de cada mês
     e devolva uma lista com os números correspondentes aos meses que 
     possuem temperatura superior á média anual.'''
 
 def maiores_13(idades,alturas):
+    '''MEDIA DAS ALTURAS'''
+    mediah = sum(alturas)/len(alturas)
+    '''LISTA DAS ALTURAS DOS MENORES ACIMA DE 13'''
+    minors = []
+    '''LOOP QUE PERCORRE TODA A LISTA alturas E QUE ADICIONA O TERMO DESEJADO
+    A LISTA minors'''
+    for i in range(0, len(alturas)):
+        if alturas[i]<mediah and idades[i]>13:
+            minors.append(alturas[i])
+        else:
+            continue
+    return minors
     '''Esta função recebe as idades e alturas de diversas pessoas, em duas
     listas separadas e de igual comprimento.
     Calcule a media das alturas e retorne as alturas daqueles que possuem 
