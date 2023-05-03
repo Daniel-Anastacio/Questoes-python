@@ -1,4 +1,10 @@
 def dormir(dia_semana, feriado):
+    '''OPERAÇÃO LÓGICA QUE CHECA SE 
+    É FERIADO OU SE É FERIADO EM UM DIA DE SEMANA'''
+    if feriado or dia_semana and feriado:
+        return True
+    else:
+        return False
     """
     dia_semana é True para dias na semana
     feriado é True nos feriados
@@ -7,6 +13,13 @@ def dormir(dia_semana, feriado):
     """
 
 def alunos_problema(a_sorri, b_sorri):
+    '''OPERAÇÃO LÓGICA QUE CHECA SE OS DOIS
+    ESTÃO SORRINDO OU SE OS DOIS NÃO ESTÃO 
+    SORRINDO'''
+    if a_sorri and b_sorri or not a_sorri and not b_sorri:
+        return True
+    else: 
+        return False
     """
     temos dois alunos a e b
     a_sorri e b_sorri indicam se a e b sorriem
@@ -15,6 +28,16 @@ def alunos_problema(a_sorri, b_sorri):
     """
 
 def soma_dobro(a, b):
+    '''VARIÁVEL QUE GUARDA O RESULTADO'''
+    result=0
+    '''COMPARA a E b E FAZ AS OPERAÇÕES PEDIDAS'''
+    if a==b:
+        result = 2*(a+b)
+    else:
+        result = a+b
+    '''RETORNA UM VALOR INTEIRO SEMPRE'''
+    return result
+
     """
     dados dois números inteiros retorna sua soma
     porém se os números forem iguais retorna o dobro da soma
@@ -23,6 +46,16 @@ def soma_dobro(a, b):
     """
 
 def diff21(n):
+    '''VARIÁVEL QUE GUARDA O RESULTADO'''
+    result=0
+    '''CHECA SE A VARIÁVEL É MAIOR QUE 21 E
+    FAZ AS OPERAÇÕES PEDIDAS'''
+    if n > 21:
+        result = 2*(abs(21-n))
+    else:
+        result = 21-n
+    '''RETORNA result'''
+    return result
     """
     dado um inteiro n retorna a diferença absoluta entre n e 21
     porém se o número for maior que 21 retorna o dobro da diferença absoluta
@@ -32,6 +65,14 @@ def diff21(n):
     """
 
 def papagaio(falando, hora):
+    '''COMPARAMOS A HORA E CHECAMOS SE O PAPAGAIO ESTÁ CANTANDO'''
+    if falando and hora>=23 or falando and hora<=6:
+        return True
+    else:
+        return False
+    '''OBS: O PROGRAMA SÓ FALHOU EM UM TESTE PORQUE ESTE FOI ESCRITO ERRADO
+    DIZ QUE DEVERIA HAVER QUANDO O PAPAGAIO CANTA AS 21, CONTRADIZENDO
+    O ENUNCIADO'''
     """
     temos um papagaio que fala alto
     hora é um parâmetro entre 0 e 23
@@ -39,12 +80,22 @@ def papagaio(falando, hora):
     """
 
 def dez(a, b):
+    '''OPERAÇÃO QUE CHECA SE AS CONDIÇÕES PEDIDAS'''
+    if a == 10 or b == 10 or a+b==10:
+        return True
+    else:
+        return False  
     """
     dados dois inteiros a e b
     retorna True se um dos dois é 10 ou a soma é 10
     """
 
 def dista10(n):
+    '''OPERAÇÃO QUE CHECA AS CONDIÇÕES'''
+    if abs(100-n) <=10 or abs(200-n)<=10:
+        return True
+    else:
+        return False
     """
     seja um inteiro n
     retorna True se a diferença absoluta entre n e 100 ou n e 200
@@ -55,6 +106,9 @@ def dista10(n):
     """
 
 def apaga(s, n):
+    '''TRATAMENTO DE STRING: CONTATENAM-SE OS
+    CARACTERES EXCLUINDO O DE ÍNDICE PEDIDO'''
+    return s[:n]+s[n+1:]
     """
     seja uma string s e um inteiro n
     retorna uma nova string sem a posição n
@@ -63,6 +117,13 @@ def apaga(s, n):
     """
 
 def troca(s):
+    '''CHECA A CONDIÇÃO DO ENUNCIADO'''
+    if len(s)<=1:
+        return s
+    else:
+        '''TRATAMENTO DE STRING: CONTATENAM OS
+        CARACTERES NA ORDEM DESEJADA'''
+        return s[len(s)-1]+s[1:len(s)-1]+s[:1]
     """
     seja uma string s
     se s tiver tamanho <= 1 retorna ela mesma
