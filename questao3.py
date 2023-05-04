@@ -4,11 +4,14 @@ import unittest
 # se cada palavra for maior ou igual a dois e
 # se o primeiro caracter coincidir com o último
 def match_ends(words):
-  x = 0
+  '''VARIÁVEL QUE CONTA OS RESULTADOS'''
+  result = 0
+  '''LOOP QUE PERCORRE TODA A LISTA'''
   for i in words:
+    '''CONDICIONAL QUE CHECA AS PREDEFINIÇÕES'''
     if  len(i)>=2 and i[:1]==i[len(i)-1]:
-      x=x+1
-  return x
+      result=result+1
+  return result
   pass
 
 # Dado uma lista de strings, retornar uma lista de string ordenadas,
@@ -17,12 +20,18 @@ def match_ends(words):
 # Dica: isto pode ser feito com 2 listas ordenando cada uma delas e
 # depois combinado-as. Veja os testes para maiores detalhes.
 def front_x(words):
+  '''LISTAS QUE SERÃO RETORNADAS COMO RESULTADO'''
   list1=[]
   list2=[]
+  '''LOOP QUE PERCORRE A LISTA'''
   for i in words:
+    '''CONDICIONAIS PARA SEPARAR AS PALAVRAS QUE
+    COMEÇAM COM X '''
     if i[:1] == "x":
       list1.append(i)
       list1.sort()
+      '''CONDICIONAIS PARA SEPARAR AS PALAVRAS QUE 
+      COMEÇAM COM OUTRAS LETRAS'''
     else:
       list2.append(i)
       list2.sort()
@@ -36,11 +45,13 @@ def front_x(words):
 # o último elemento, ela deve ser passada no segundo parâmetro
 # da função sorted()
 def sort_last(tuples):
-  
-  return sorted(tuples, reverse=True)
+  '''ORDENA USANDO COMO CHAVE A ÚLTIMA TUPLA'''
+  return sorted(tuples, key=last)
   pass
 
 def last(a):
+  '''SEPARA A ÚLTIMA TUPLA DA LISTA'''
+  return a[len(a)-1]
   pass
 
 class MyTest(unittest.TestCase):
