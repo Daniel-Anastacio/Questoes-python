@@ -3,6 +3,8 @@ import unittest
 
 def verbing(s):
     #SEU CODIGO AQUI
+    '''CONDICIONAIS QUE RECORTAM O FINAL
+    DA STRING E COMPARAM'''
     if s[len(s)-1]=="l":
        return s + "ing"
     elif s[len(s)-3:] == "ing":
@@ -17,10 +19,13 @@ def verbing(s):
 # substituir todo o trecho "not ... bad" por 'good'
 # Retorne a string resultante.
 def not_bad(s): 
-  if s.count('bad')>0 and s.count('not')>0 and s.count(" is ")>0:
+  '''CONDICIONAL QUE CHECA A EXISTÊNCIA DOS TERMOS
+  PEDIDOS'''
+  if 'bad' in s and 'not' in s and ' is ' in s :
        x = s.index('not')
        y = s.index('bad')
        z = s.index(' is ')
+       '''TRATAMENTO DE STRING E RECORTE'''
        if x<y:
         return s[:z+4] + "good"
        else:
@@ -35,15 +40,12 @@ def not_bad(s):
 # Dado 2 strings, 'a' e 'b', retornar um string na forma
 # a front + b front + a back + b back
 def front_back(a, b):
-  list=[]
-  for i in (a,b):
-    if len(i)%2 == 0:
-      list.append(i[:(len(i)/2)], i[(len(i)/2):])
-      print(list)
-    else:
-      list.append(i[:(len(i)/2)+1], i[(len(i)/2)-1:])
-      print(list)
-  return f'{list[0]}{list[1]}{list[2]}{list[3]}'
+  '''DECLARA OS VALROES QUE CORRESPONDEM A METADE DA PALAVRA
+  E SOMA COM ALGUM RESTO QUE HAJA NESSA DIVISÃO
+  CUMPRINDO A REQUISIÇÃO'''
+  index_a = int(len(a)/2)+len(a)%2
+  index_b = int(len(b)/2)+len(b)%2
+  return a[:index_a]+ b[:index_b] +a[index_a-len(a)%2:]+b[index_b-len(a)%2:]
   pass
 
 class MyTest(unittest.TestCase):
