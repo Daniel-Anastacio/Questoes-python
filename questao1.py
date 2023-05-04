@@ -4,9 +4,9 @@ import unittest
 # na forma "Número de donuts: <count>", caso `count` seja
 # maior ou igual a 10 retornar "many".
 def donuts(count):
-  '''Usando IF para checar variável'''
+  '''USANDO if PARA CHECAR VARIÁVEL'''
   if count >=10:
-    '''Maior que dez funciona melhor pois printa qualquer valor menor 10'''
+    '''MAIOR QUE OU IGUAL A DEZ FUNCIONA MELHOR POIS PRINTA QUALQUER QUALQUER VALOR MENOR QUE DEZ'''
     return 'Number of donuts: many'
   else:
     return f'Number of donuts: {count}'
