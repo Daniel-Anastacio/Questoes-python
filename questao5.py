@@ -48,7 +48,7 @@ def main():
     test(comprar_frutas(morango=5, uva=0), 12.50)
     # Testes só com morangos, muda a faixa:
     test(comprar_frutas(morango=6, uva=0), 13.20)
-    test(comprar_frutas(morango=5.1, uva=0), 11.22)
+    test(comprar_frutas(morango=5, uva=0), 11.22)
     test(comprar_frutas(morango=8, uva=0), 17.60)
     # Testes só com morangos, recebe desconto por peso:
     test(comprar_frutas(morango=9, uva=0), 17.82)
@@ -63,7 +63,7 @@ def main():
     test(comprar_frutas(morango=0, uva=5), 9.0)
     # Testes só com uvas, muda a faixa:
     test(comprar_frutas(morango=0, uva=6), 9.00)
-    test(comprar_frutas(morango=0, uva=5.1), 7.65)
+    test(comprar_frutas(morango=0, uva=5), 7.65)
     test(comprar_frutas(morango=0, uva=8), 12.00)
     # Testes só com uvas, recebe desconto por peso:
     test(comprar_frutas(morango=0, uva=9), 12.15)
