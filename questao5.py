@@ -1,5 +1,30 @@
-def comprar_frutas(morango=0, uva=0):
-    '''
+def comprar_frutas(morango=float(), uva=float()):
+    '''VARIÁVEL QUE VAI RECEBER O PREÇO FINAL'''
+    result = float()
+    '''LISTA AUXILIAR QUE GUARDA OS PESOS'''
+    pesos = [morango, uva]
+    '''LISTA QUE GUARDA OS PREÇOS BASE'''
+    prcs = [2.50, 1.80]
+    '''LISTA COM PREÇOS FINAIS, FICA MAIS FÁCIL ENTENDER OS VALORES SE OS PREÇOS FOREM SEPARADOS'''
+    precos_finais = []
+    '''LOOP QUE PERCORREA A QUANTIDADE DE FRUTAS'''
+    for i in range(len(pesos)):
+        '''CONDICIONAL QUE CHECA O PESO DAS FRUTAS'''
+        if pesos[i] > 5:
+            '''DIMINUI O PREÇO EM TRINTA CENTS CONFORME O ENUNCIADO'''
+            prcs[i] = prcs[i]- 0.30
+        '''ADICIONA A LISTA DE PREÇOS FINAIS O VALOR TOTAL DE CADA FRUTA'''
+        precos_finais.append(pesos[i]*prcs[i])
+    '''CONDICIONAL QUE CHECA SE O PESO TOTAL É MAIOR QUE OITO E O PREÇO DA COMPRA'''
+    if morango + uva > 8 or sum(precos_finais)>25.00:
+        '''TIRA OS 10%'''
+        result = sum(precos_finais)-sum(precos_finais)*0.1
+    else:
+        '''RETORNA O PREÇO NORMAL'''
+        result = sum(precos_finais)
+    return round(result,2)
+    
+'''
     Uma fruteira está vendendo frutas com a seguinte tabela de preços:
                           Até 5 Kg           Acima de 5 Kg
     Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
@@ -48,7 +73,7 @@ def main():
     test(comprar_frutas(morango=5, uva=0), 12.50)
     # Testes só com morangos, muda a faixa:
     test(comprar_frutas(morango=6, uva=0), 13.20)
-    test(comprar_frutas(morango=5, uva=0), 11.22)
+    test(comprar_frutas(morango=5.1, uva=0), 11.22)
     test(comprar_frutas(morango=8, uva=0), 17.60)
     # Testes só com morangos, recebe desconto por peso:
     test(comprar_frutas(morango=9, uva=0), 17.82)
@@ -63,7 +88,7 @@ def main():
     test(comprar_frutas(morango=0, uva=5), 9.0)
     # Testes só com uvas, muda a faixa:
     test(comprar_frutas(morango=0, uva=6), 9.00)
-    test(comprar_frutas(morango=0, uva=5), 7.65)
+    test(comprar_frutas(morango=0, uva=5.1), 7.65)
     test(comprar_frutas(morango=0, uva=8), 12.00)
     # Testes só com uvas, recebe desconto por peso:
     test(comprar_frutas(morango=0, uva=9), 12.15)
